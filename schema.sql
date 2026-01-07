@@ -1,0 +1,28 @@
+CREATE DATABASE IF NOT EXISTS seminar_booking_db;
+USE seminar_booking_db;
+
+CREATE TABLE IF NOT EXISTS users (
+    uucms VARCHAR(255) PRIMARY KEY,
+    password VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    branch VARCHAR(255) NOT NULL,
+    role VARCHAR(50) DEFAULT 'ROLE_USER'
+);
+
+CREATE TABLE IF NOT EXISTS admins (
+    username VARCHAR(255) PRIMARY KEY,
+    password VARCHAR(255) NOT NULL,
+    branch VARCHAR(255) NOT NULL,
+    role VARCHAR(50) DEFAULT 'ROLE_ADMIN'
+);
+
+CREATE TABLE IF NOT EXISTS booking_requests (
+    request_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    date DATE NOT NULL,
+    slot VARCHAR(50) NOT NULL,
+    purpose VARCHAR(255) NOT NULL,
+    uucms VARCHAR(255) NOT NULL,
+    branch VARCHAR(255) NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    FOREIGN KEY (uucms) REFERENCES users(uucms)
+);
