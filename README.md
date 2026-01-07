@@ -83,5 +83,3 @@ The **Seminar Hall Booking Backend** is a robust REST API developed using **Spri
 4. Select **Bearer Token** and paste the token.
 5. Hit **Send** to access the API.
 
-## 📝 Project Status
-🚧 **Active Development** - Core features implemented. Future updates will include email notifications and calendar integration.
